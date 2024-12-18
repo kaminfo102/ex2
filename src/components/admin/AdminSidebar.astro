@@ -1,0 +1,35 @@
+---
+const menuItems = [
+  { title: 'داشبورد', href: '/admin/dashboard', icon: 'home' },
+  { title: 'آزمون‌ها', href: '/admin/exams', icon: 'clipboard' },
+  { title: 'سوالات', href: '/admin/questions', icon: 'question' },
+  { title: 'دسته‌بندی‌ها', href: '/admin/categories', icon: 'folder' },
+  { title: 'کاربران', href: '/admin/users', icon: 'users' },
+  { title: 'پرداخت‌ها', href: '/admin/payments', icon: 'credit-card' },
+  { title: 'تحلیل‌ها', href: '/admin/analytics', icon: 'chart' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<aside class="w-64 bg-white border-l">
+  <div class="h-full px-3 py-4 overflow-y-auto">
+    <div class="mb-8 px-4">
+      <h1 class="text-xl font-bold text-blue-600">پنل مدیریت</h1>
+    </div>
+    
+    <ul class="space-y-2">
+      {menuItems.map(item => (
+        <li>
+          <a
+            href={item.href}
+            class={`flex items-center p-3 text-gray-700 rounded-lg hover:bg-gray-100
+              ${currentPath === item.href ? 'bg-blue-50 text-blue-600' : ''}`}
+          >
+            <span class="ml-3">{item.title}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</aside>

@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import UserExams from '../../components/user/UserExams';
+import UserStats from '../../components/user/UserStats';
+---
+
+<Layout title="داشبورد کاربری">
+  <div class="space-y-8">
+    <h1 class="text-2xl font-bold">داشبورد کاربری</h1>
+    
+    <UserStats client:load />
+    
+    <div class="card">
+      <h2 class="text-xl font-semibold mb-4">آزمون‌های من</h2>
+      <UserExams client:load />
+    </div>
+  </div>
+</Layout>
